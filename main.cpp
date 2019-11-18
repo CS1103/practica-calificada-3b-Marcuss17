@@ -6,15 +6,13 @@ int main() {
     string ruta1 = "/home/eduardo/Desktop/Utec/Poo2/practica-calificada-3b-Marcuss17/rectangulos.in";
     string ruta2 = "/home/eduardo/Desktop/Utec/Poo2/practica-calificada-3b-Marcuss17/rectangulosFinales.out";
     auto fileRead = readFile(ruta1);
-    int numRect;
-    int** table;
-    parseVector1(fileRead,table,numRect);
+    int numRect, n, m;
+    parseVector1(fileRead,numRect,n,m);
+    auto table = createTable(n,m); //Constructor del tablero
     vector<rectangulos> rectangles;
     parseVector2(fileRead,rectangles);
     auto setOut1 = setOut(rectangles);
     writeFile(ruta2,setOut1);
-    //destroyTable(table,);
-
-
+    destroyTable(table,n,m); //Destructor del tablero
     return 0;
 }

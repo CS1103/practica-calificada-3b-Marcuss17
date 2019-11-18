@@ -1,7 +1,6 @@
 #include "parseVector.h"
 
-void parseVector1(vector<string> fileRead, int**& table, int& numRect){
-    int n,m;
+void parseVector1(vector<string> fileRead, int& numRect, int& n, int& m){
     string line;
     for(auto it = fileRead.begin(); it  != fileRead.end(); it++){
         if(it == fileRead.begin()){
@@ -10,30 +9,20 @@ void parseVector1(vector<string> fileRead, int**& table, int& numRect){
                 auto it2 = find(it->begin(), it->end(),' ');
                 auto it3 = it->begin();
                 if(i == 0) {
-                    while (it3 != it2) {
-                        line += *it3;
-                        it3++;
-                    }
+                    iterate(line,it3,it2);
                     numRect= stoi(line);
                     it->erase(0,3);
                 }
                 if(i == 1){
-                    while (it3 != it2){
-                        line += *it3;
-                        it3++;
-                    }
+                    iterate(line,it3,it2);
                     n = stoi(line);
                     it->erase(0,3);
                 }
                 if(i == 2){
-                    while (it3 != it2){
-                        line += *it3;
-                        it3++;
-                    }
+                    iterate(line,it3,it2);
                     m = stoi(line);
                 }
             }
-            table = createTable(n,m);
         }
     }
 }
@@ -51,37 +40,21 @@ void parseVector2(vector<string> fileRead, vector<rectangulos>& rectangles){
             sx = "";
             sy = "";
             auto it1 = it->begin();
-            auto it2 = find(it->begin(), it->end(),' ');
-            it2++;
-            auto it3 = find(it2, it->end(),' ');
-            it3++;
-            auto it4 = find(it3, it->end(),' ');
-            it4++;
-            auto it5 = find(it4, it->end(), ' ');
-            it5++;
+            auto it2 = find(it->begin(), it->end(),' '); it2++;
+            auto it3 = find(it2, it->end(),' '); it3++;
+            auto it4 = find(it3, it->end(),' '); it4++;
+            auto it5 = find(it4, it->end(), ' '); it5++;
             while(it1 != it2){
                 accion += *it1;
                 it1++;
             }
-            while(it2 != it3){
-                sx += *it2;
-                it2++;
-            }
+            iterate(sx,it2,it3);
             x = stoi(sx);
-            while(it3 != it4){
-                sy += *it3;
-                it3++;
-            }
+            iterate(sy,it3,it4);
             y = stoi(sy);
-            while(it4 != it5){
-                sr += *it4;
-                it4++;
-            }
+            iterate(sr,it4,it5);
             rr = stoi(sr);
-            while(it5 != it->end()){
-                sc += *it5;
-                it5++;
-            }
+            iterate(sc,it5,it->end());
             c = stoi(sc);
             r.accion = accion; r.r = rr; r.c = c; r.posx = x; r.posy = y;
             rectangles.push_back(r);
