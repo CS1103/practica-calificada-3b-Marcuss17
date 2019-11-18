@@ -3,8 +3,8 @@
 #include "vectorOut.h"
 
 int main() {
-    string ruta1 = "/home/eduardo/Desktop/Utec/Poo2/practica-calificada-3b-Marcuss17/rectangulos.in";
-    string ruta2 = "/home/eduardo/Desktop/Utec/Poo2/practica-calificada-3b-Marcuss17/rectangulosFinales.out";
+    string ruta1 = "/home/eduardo/Desktop/Utec/Poo2/practica-calificada-3b-Marcuss17/set1.in";
+    string ruta2 = "/home/eduardo/Desktop/Utec/Poo2/practica-calificada-3b-Marcuss17/set1.out";
     auto fileRead = readFile(ruta1);
     int numRect, n, m;
     parseVector1(fileRead,numRect,n,m);
