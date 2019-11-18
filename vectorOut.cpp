@@ -1,4 +1,4 @@
-#include "setOut.h"
+#include "vectorOut.h"
 
 bool compare(const rectangulos& a, const rectangulos& b){
     return a.posx < b.posx;

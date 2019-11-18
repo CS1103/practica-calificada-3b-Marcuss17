@@ -1,6 +1,6 @@
 #include "readAndWrite.h"
 #include "parseVector.h"
-#include "setOut.h"
+#include "vectorOut.h"
 
 int main() {
     string ruta1 = "/home/eduardo/Desktop/Utec/Poo2/practica-calificada-3b-Marcuss17/rectangulos.in";

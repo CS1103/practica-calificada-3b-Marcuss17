@@ -8,4 +8,4 @@ else()
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Werror -Wpedantic -Wextra")
 endif()
 
-add_executable(pc3b main.cpp readAndWrite.h readAndWrite.cpp allIncludes.h parseVector.h rectangulos.h parseVector.cpp setOut.h setOut.cpp)
+add_executable(pc3b main.cpp readAndWrite.h readAndWrite.cpp allIncludes.h parseVector.h rectangulos.h parseVector.cpp vectorOut.h vectorOut.cpp)
