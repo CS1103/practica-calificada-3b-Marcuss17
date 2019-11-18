@@ -8,7 +8,8 @@
 void parseVector1(vector<string>, int&, int&, int&);
 void parseVector2(vector<string>, vector<rectangulos>& rectangles);
 int** createTable(int,int);
-void destroyTable(int**&,int,int);
+void destroyTable(int**&,int);
+
 template<typename forward, typename T>
 void iterate(T& s, forward a, forward b){
     while(a != b){

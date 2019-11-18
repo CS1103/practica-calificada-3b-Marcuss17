@@ -13,6 +13,6 @@ int main() {
     parseVector2(fileRead,rectangles);
     auto setOut1 = setOut(rectangles);
     writeFile(ruta2,setOut1);
-    destroyTable(table,n,m); //Destructor del tablero
+    destroyTable(table,n); //Destructor del tablero
     return 0;
 }
