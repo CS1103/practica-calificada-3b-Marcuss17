@@ -57,7 +57,6 @@ void parseVector2(vector<string> fileRead, vector<rectangulos>& rectangles){
                     r.accion = accion;
             }catch(const char* msg){
                 std::cerr << msg << endl;
-                break;
             }
             iterate(sx,it2,it3);
             x = stoi(sx);
@@ -72,7 +71,6 @@ void parseVector2(vector<string> fileRead, vector<rectangulos>& rectangles){
                 }
             }catch(const char* msg){
                 std::cerr << msg << endl;
-                break;
             }
             iterate(sr,it4,it5);
             rr = stoi(sr);
