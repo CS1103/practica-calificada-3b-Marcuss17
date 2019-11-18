@@ -9,22 +9,16 @@ vector<rectangulos> setOut(vector<rectangulos> rectangles){
     auto it = rectangles.begin();
     setOut.push_back(*it);
     it++;
-    bool notIn;
+    bool In;
     for(;it != rectangles.end();it++){
         for(auto it2 : setOut){
-            notIn = false;
-            /*if((it->posx == it2.posx && it->posy == it2.posy) && (it->r < it2.r)){
-                cout << "hola";
-                notIn = true;
-            }*/
-            if((it->posx == it2.posx && it->posy == it2.posy)){
-                notIn = true;
+            In = false;
+            if((it->posx == it2.posx && it->posy == it2.posy) && (it->r > it2.r || it->c > it2.c)){
+                In = true;
                 break;
             }
-
         }
-        if(!notIn){
-            cout << "Voy a meter a: " << it->posx << ' ' << it->posy << endl;
+        if(!In){
             setOut.push_back(*it);
         }
     }
