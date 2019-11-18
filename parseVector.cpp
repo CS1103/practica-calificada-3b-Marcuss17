@@ -28,11 +28,13 @@ void parseVector1(vector<string> fileRead, int& numRect, int& n, int& m){
 }
 
 void parseVector2(vector<string> fileRead, vector<rectangulos>& rectangles){
+    int count  = 0;
     char accion;
     string sr, sc, sx, sy;
     int rr,c,x,y;
     for(auto it = fileRead.begin(); it != fileRead.end();it++){
         if(it != fileRead.begin()){
+            count++;
             rectangulos r;
             accion = '\0';
             sr = "";
@@ -48,18 +50,44 @@ void parseVector2(vector<string> fileRead, vector<rectangulos>& rectangles){
                 accion += *it1;
                 it1++;
             }
+            try {
+                if(accion != 'a')
+                    throw "La instrucción no ha sido detallada!";
+                else
+                    r.accion = accion;
+            }catch(const char* msg){
+                std::cerr << msg << endl;
+                break;
+            }
             iterate(sx,it2,it3);
             x = stoi(sx);
             iterate(sy,it3,it4);
             y = stoi(sy);
+            try{
+                if(x > 60 || y > 60)
+                    throw "Fuera de la tabla!";
+                else{
+                    r.posx = x;
+                    r.posy = y;
+                }
+            }catch(const char* msg){
+                std::cerr << msg << endl;
+                break;
+            }
             iterate(sr,it4,it5);
             rr = stoi(sr);
             iterate(sc,it5,it->end());
             c = stoi(sc);
-            r.accion = accion; r.r = rr; r.c = c; r.posx = x; r.posy = y;
+            r.r = rr; r.c = c; r.posx = x; r.posy = y;
             rectangles.push_back(r);
         }
     }
+    /*try{
+        if(count != numRects)
+            throw "Input distinto al número de rectángulos ó hubo error en el parseo";
+        }catch(const char* msg){
+            std::cerr << msg << endl;
+        }*/
 }
 
 int** createTable(int n, int m){

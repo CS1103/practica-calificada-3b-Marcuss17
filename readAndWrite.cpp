@@ -23,7 +23,10 @@ void writeFile(const string& ruta2, vector<rectangulos> rects){
     file2.open(ruta2);
     for(auto it : rects){
         char a =toupper(it.accion);
-        file2 << a << ' ' << it.posx << ' ' << it.posy << ' ' << it.r << ' ' << it.c << endl;
+        if(a != 'A' || (it.posx > 60 || it.posy > 60))
+            file2 << "ERROR" << endl;
+        else
+            file2 << a << ' ' << it.posx << ' ' << it.posy << ' ' << it.r << ' ' << it.c << endl;
     }
     file2.close();
 }
